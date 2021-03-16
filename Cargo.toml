@@ -5,3 +5,7 @@ authors = ["Markus Røyset <maroider@protonmail.com>"]
 edition = "2018"
 
 [dependencies]
+anyhow = "1.0.38"
+clap = "3.0.0-beta.2"
+duct = "0.13.5"
+url = "2.2.1"
