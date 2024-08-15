@@ -1,6 +1,6 @@
 use std::{ffi::OsString, path::PathBuf};
 
-use clap::Clap;
+use clap::Parser;
 use duct::cmd;
 use url::Url;
 
@@ -8,7 +8,7 @@ use url::Url;
 ///
 /// You can pass along extra arguments to git by appending `-- <args>` to the
 /// command line.
-#[derive(Clap)]
+#[derive(Parser)]
 pub struct Clone {
     url: String,
     /// Add an upstream remote by using a username / organization name.

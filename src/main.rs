@@ -1,12 +1,12 @@
 use std::env;
 
-use clap::{Clap, IntoApp};
+use clap::{Parser, CommandFactory};
 
 mod commands;
 
 fn main() -> anyhow::Result<()> {
     if env::args_os().count() == 1 {
-        Opts::into_app().print_help().unwrap();
+        Opts::command().print_help().unwrap();
         return Ok(());
     }
 
@@ -17,13 +17,13 @@ fn main() -> anyhow::Result<()> {
     }
 }
 
-#[derive(Clap)]
+#[derive(Parser)]
 struct Opts {
     #[clap(subcommand)]
     command: Command,
 }
 
-#[derive(Clap)]
+#[derive(Parser)]
 enum Command {
     Clone(commands::Clone),
 }
